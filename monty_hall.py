@@ -20,27 +20,7 @@ class MontyHall:
         return 1 if chosen_door == self.winner_door else 0
 
 
-class PlayerNotChange:
 
-    def __init__(self):
-        self.score = 0
-    
-    def play(self, game: MontyHall):
-        chosen_door = random.choice(game.doors)
-        game.turn1(chosen_door)
-        self.score += game.turn2(chosen_door)
-
-
-class PlayerChange:
-
-    def __init__(self):
-        self.score = 0
-
-    def play(self, game: MontyHall):
-        chosen_door = random.choice(game.doors)
-        loser_door = game.turn1(chosen_door)
-        other_doors = [door for door in game.doors if door != chosen_door and door != loser_door]
-        self.score += game.turn2(random.choice(other_doors))
 
 
 if __name__ == '__main__':
